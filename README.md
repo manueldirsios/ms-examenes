@@ -46,6 +46,9 @@ Se desplega en tomcat local o contenedores.
 | --------------------- | ------ | ----------------------------------------- | ----------------------------------------------- |
 | **MS-EXAMENES**| 8080   | ./gradlew build       | tomcat embebido                            |
 
+## Demo
+https://e-commerce.dirsio.mx/
+
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://www.dirsio.mx/)
 
