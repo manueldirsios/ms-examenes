@@ -41,10 +41,12 @@ El proyecto esta desarrollado en arquitectura de microservicios implementa `Spri
 Se desplega en tomcat local o contenedores.
 
 
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://www.dirsio.mx/)
-
-![Logo](https://web-dirsio.s3.us-west-1.amazonaws.com/favicon.ico)
 
 | Instancia             | Puerto | Build                                     | Run                                             |
 | --------------------- | ------ | ----------------------------------------- | ----------------------------------------------- |
 | **MS-EXAMENES**| 8080   | ./gradlew build       | tomcat embebido                            |
+
+
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://www.dirsio.mx/)
+
+![Logo](https://web-dirsio.s3.us-west-1.amazonaws.com/favicon.ico)
