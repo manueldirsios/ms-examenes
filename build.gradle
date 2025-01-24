@@ -1,0 +1,90 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+	id 'org.sonarqube' version '4.4.1.3373'
+	id 'jacoco'
+}
+
+group = 'com.gd.examen'
+version = '0.0.1-SNAPSHOT'
+
+jacoco {
+    toolVersion = "0.8.11"
+    reportsDirectory = layout.projectDirectory.dir("src")
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	/*SWAGGER*/
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.6.0'
+	/*MODEL MAPPER*/
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.1'
+
+    /*PARA VALIDAR EL REQUEST RECIBIDO EN UN SERVICIO Y VALIDAR QUE VENGA CORRECTO DE LO CONTRARIO LANZAMOS EXCEPCION CON LA DEFINICION DE LOS CAMPOS*/
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.3'
+    
+    /*SPRING SECURITY*/
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.4.0'
+    
+	/*JWT*/
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+
+	/*UTILERIAS DE JACKSON*/
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	/*IMPLEMENTACION DE JACKSON*/
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+
+
+ 
+	 runtimeOnly 'com.h2database:h2'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.named('jar') {
+    enabled = false
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+/*PROPIEDADES DE SONAR PARA HACER EL ESCANER DESDE LAS TAREAS DE GRADLE*/
+sonar {
+    properties {
+        property("sonar.projectKey", "examen")
+        property("sonar.host.url", "http://localhost:9000")
+        property("sonar.login", "xxx")
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.projectDir}/src/test/jacocoTestReport.xml"
+        property "sonar.coverage.exclusions", "**/*test*"
+        property "sonar.issue.ignore.multicriteria", "e1"
+        property "sonar.issue.ignore.multicriteria.e1.resourceKey", "src/test/java/**/*"
+        property "sonar.issue.ignore.multicriteria.e1.ruleKey", "*"
+    }
+
+}
