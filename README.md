@@ -18,6 +18,8 @@ El proyecto esta desarrollado en arquitectura de microservicios implementa `Spri
 | **SwaggerConfig.java**				 | Clase de configuracion para la ui y documentacion de servicios con de swagger http://localhost:8080/swagger-ui/index.html                           |
 | **build.gradle**                                    | Dependencias, Compilacion y empaquetado                                                                                                                                                 |
 | **TransaccionExceptionHandler.java**                          | Clase manejadora de excepciones
+| **DockerFile**                          | Archivo de dockerizacion de proyecto
+| **buildspec.yml**                          | Instrucciones necesarias para construir, probar y empaquetar tu aplicación dentro del entorno de CodeBuild y desplegar con codepipeline
 
 
 
