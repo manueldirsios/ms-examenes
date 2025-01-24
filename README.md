@@ -20,6 +20,9 @@ El proyecto esta desarrollado en arquitectura de microservicios implementa `Spri
 | **TransaccionExceptionHandler.java**                          | Clase manejadora de excepciones
 | **DockerFile**                          | Archivo de dockerizacion de proyecto
 | **buildspec.yml**                          | Instrucciones necesarias para construir, probar y empaquetar tu aplicación dentro del entorno de CodeBuild y desplegar con codepipeline
+| **DockerFile**                          | Archivo de dockerizacion de proyecto
+| **JwtAuthenticationFilter.java**                          | Interceptar las solicitudes HTTP y validar los tokens JWT antes de permitir el acceso a recursos protegidos.
+| **SecurityConfig .java**                          | Clase permite definir cómo se autentican y autorizan las solicitudes que llegan a la aplicación.
 
 
 
